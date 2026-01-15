@@ -1,0 +1,148 @@
+/* 1. Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. Navbar Container */
+.navbar {
+    position: fixed; /* Stays at top while scrolling */
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    backdrop-filter: blur(10px); /* Modern blur effect */
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* 3. Logo */
+.nav-logo {
+    color: #1a1a1a;
+    font-size: 1.6rem;
+    font-weight: 750;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+/* 4. Navigation Menu - Pushed to the Right */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-left: auto; /* This pushes the entire menu to the right */
+}
+
+.nav-item {
+    margin-left: 35px;
+}
+
+.nav-link {
+    color: #4a4a4a;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* 5. Call to Action Button */
+.nav-cta {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.nav-cta:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* 6. Mobile Hamburger Icon */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* 7. Responsive Styles (Mobile & Tablet) */
+@media screen and (max-width: 992px) {
+    .nav-container {
+        padding: 0 25px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Mobile Menu Overlay */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        height: calc(100vh - 80px); /* Full height minus navbar */
+        text-align: center;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        margin-left: 0; /* Reset margin for mobile */
+        padding-top: 50px;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 20px 0;
+    }
+
+    /* Hamburger Animation to 'X' */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
