@@ -212,31 +212,69 @@ h1 {
     }
 }
 
-/* Container for all cards */
-.features-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Space between cards */
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the whole section */
+/* ================================
+   SECTION HEADER
+================================ */
+.section-header {
+    text-align: center;
+    padding: 80px 20px 20px;
 }
 
-/* Individual Card Styling */
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0;
+    letter-spacing: -1px;
+    color: #1a1a1a;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+}
+
+
+/* ================================
+   TOP ROW (3 CARDS)
+================================ */
+.features-container-top {
+    display: flex;
+    justify-content: center;   /* centers the 3 cards */
+    gap: 30px;
+    padding: 80px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================================
+   BOTTOM ROW (2 CARDS CENTERED)
+================================ */
+.feature-container-bottom {
+    display: flex;
+    justify-content: center;   /* <-- THIS centers the bottom two */
+    gap: 30px;
+    padding: 20px 20px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================================
+   FEATURE CARD STYLING
+================================ */
 .feature-card {
+    width: 100%;
+    max-width: 350px;
     background: #ffffff;
     padding: 40px 30px;
     border-radius: 12px;
     text-align: center;
-    flex: 1; /* Makes all cards equal width */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
-    transition: transform 0.3s ease;
     border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect */
 .feature-card:hover {
-    transform: translateY(-10px); /* Lifts card up on hover */
+    transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
@@ -246,54 +284,222 @@ h1 {
     margin-bottom: 20px;
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
 .feature-card p {
-    color: #666;
     font-size: 1rem;
     line-height: 1.5;
+    color: #666;
 }
 
-/* Mobile View: Stack cards vertically */
+/* ================================
+   RESPONSIVE (MOBILE)
+================================ */
 @media (max-width: 768px) {
-    .features-container {
+    .features-container-top,
+    .features-container-bottom {
         flex-direction: column;
         align-items: center;
+        padding: 40px 20px;
     }
-    
+
     .feature-card {
-        width: 100%;
         max-width: 400px;
     }
 }
 
-.section-header {
+/* ================================
+   SECTION
+================================ */
+.pricing-table-section {
+    padding: 80px 20px;
     text-align: center;
-    padding: 80px 20px 20px 20px; /* Large top padding to separate from Hero */
 }
 
-.section-title {
-    font-size: 3rem;
+.pricing-title {
+    font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 0px;
-    letter-spacing: -1px;
-    color:#1a1a1a;
-
-}
-
-.section-subtitle {
+    margin-bottom: 30px;
     color: #1a1a1a;
-    font-size: 1.1rem;
 }
 
-/* Adjust the features padding so it's not too far from the title */
-.features {
+
+/* ================================
+   BILLING TOGGLE
+================================ */
+.billing-toggle {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 40px 10% 100px 10%; /* Reduced top padding */
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.toggle-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Switch styling */
+.switch {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    display: inline-block;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+
+/* ================================
+   TABLE WRAPPER
+================================ */
+.pricing-table-wrapper {
+    overflow-x: auto;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+.pricing-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    min-width: 700px;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    color: #444;
+    font-size: 1rem;
+}
+
+.feature-col {
+    text-align: left;
+    font-weight: 700;
+    background: #fafafa;
+}
+
+
+/* ================================
+   HIGHLIGHTED PLUS COLUMN
+================================ */
+.highlight-col {
+    background: #fff7e6;
+    font-weight: 700;
+}
+
+.popular-badge {
+    display: inline-block;
+    margin-top: 6px;
+    background: #ff9800;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   PRICE ROW + DISCOUNTS
+================================ */
+.price-row td {
+    font-weight: 700;
+    background: #fdfdfd;
+}
+
+.discount-label {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #28a745;
+}
+
+
+/* ================================
+   CTA BUTTONS
+================================ */
+.plan-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.plan-btn:hover {
+    background: #005fcc;
+}
+
+.highlight-btn {
+    background: #ff9800;
+}
+
+.highlight-btn:hover {
+    background: #e68900;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .pricing-title {
+        font-size: 2rem;
+    }
+
+    .pricing-table {
+        font-size: 0.9rem;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        padding: 14px;
+    }
 }
