@@ -81,7 +81,7 @@ body {
 
 .nav-cta:hover {
     background-color: #0056b3;
-    transform: translateY(-1px);
+    transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
 }
 
@@ -144,5 +144,57 @@ body {
     }
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Big Bold Text Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh; /* Takes up half the screen height */
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.hero-title {
+    font-size: 4.5rem;    /* Very large text */
+    font-weight: 900;   /* Heaviest bold setting */
+    letter-spacing: -2px; /* Tighter look for bold text */
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.hero-cta {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.hero-cta:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+h1 {
+    margin: 0; /* Removes the hidden extra space */
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
     }
 }
