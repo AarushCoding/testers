@@ -423,26 +423,6 @@ input:checked + .slider:before {
 
 
 /* ================================
-   HIGHLIGHTED PLUS COLUMN
-================================ */
-.highlight-col {
-    background: #fff7e6;
-    font-weight: 700;
-}
-
-.popular-badge {
-    display: inline-block;
-    margin-top: 6px;
-    background: #ff9800;
-    color: #fff;
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    border-radius: 12px;
-    font-weight: 700;
-}
-
-
-/* ================================
    PRICE ROW + DISCOUNTS
 ================================ */
 .price-row td {
