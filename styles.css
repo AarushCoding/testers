@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -16,7 +20,7 @@ body {
     top: 0;
     width: 100%;
     height: 80px;
-    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    background: rgba(255, 255, 255, 0.8); /* Slight transparency */
     backdrop-filter: blur(10px); /* Modern blur effect */
     display: flex;
     align-items: center;
@@ -154,18 +158,27 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 50vh; /* Takes up half the screen height */
+    min-height: 80vh; /* Increased height for a better look with images */
     padding: 20px;
-    background-color: #f9f9f9;
+    
+    /* The Magic Part: Overlay + Image */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('assets/background.jpeg');
+    
+    background-size: cover;       /* Ensures the image fills the area */
+    background-position: center;  /* Keeps the image centered */
+    background-attachment: fixed; /* Optional: adds a cool parallax effect */
+    
+    color: white; /* Ensures text is readable against the dark overlay */
 }
 
 .hero-title {
-    font-size: 4.5rem;    /* Very large text */
-    font-weight: 900;   /* Heaviest bold setting */
-    letter-spacing: -2px; /* Tighter look for bold text */
-    color: #1a1a1a;
+    font-size: 4.5rem;
+    font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 10px;
+    margin: 0;
+    color: #ffffff; /* Make sure title is white */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Optional: extra pop */
 }
 
 .hero-cta {
@@ -197,4 +210,90 @@ h1 {
     .hero-title {
         font-size: 3rem;
     }
+}
+
+/* Container for all cards */
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between cards */
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the whole section */
+}
+
+/* Individual Card Styling */
+.feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1; /* Makes all cards equal width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+/* Hover Effect */
+.feature-card:hover {
+    transform: translateY(-10px); /* Lifts card up on hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Mobile View: Stack cards vertically */
+@media (max-width: 768px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+.section-header {
+    text-align: center;
+    padding: 80px 20px 20px 20px; /* Large top padding to separate from Hero */
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0px;
+    letter-spacing: -1px;
+    color:#1a1a1a;
+
+}
+
+.section-subtitle {
+    color: #1a1a1a;
+    font-size: 1.1rem;
+}
+
+/* Adjust the features padding so it's not too far from the title */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 10% 100px 10%; /* Reduced top padding */
 }
