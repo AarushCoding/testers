@@ -1,0 +1,277 @@
+/* ------------------------------
+   Base
+------------------------------ */
+body.auth-page {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #08090b;
+    color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 0;
+}
+
+/* ------------------------------
+   Floating Glass Card
+------------------------------ */
+.login-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 0 28px;
+}
+
+.login-box {
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(34px) saturate(220%);
+    -webkit-backdrop-filter: blur(34px) saturate(220%);
+    border-radius: 26px;
+    padding: 58px;
+    box-shadow: 0 0 120px rgba(120,160,255,0.12);
+    animation: floatIn 0.7s ease;
+}
+
+/* ------------------------------
+   Header
+------------------------------ */
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #7fb3ff;
+}
+
+.login-header h2 {
+    margin: 22px 0 6px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ------------------------------
+   Back Link
+------------------------------ */
+.back-link {
+    display: inline-block;
+    margin-bottom: 36px;
+    color: #7b7f86;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+/* ------------------------------
+   OAuth Buttons — Side by Side
+------------------------------ */
+.oauth-buttons {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 0px;
+}
+
+.oauth-btn {
+    flex: 1;
+    padding: 14px 0;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    color: #e5e7eb;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.oauth-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+.oauth-btn:hover {
+    background: rgba(255,255,255,0.07);
+}
+
+.github-btn img {
+    filter: invert(1);
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    opacity: 0.55;
+}
+
+.divider span {
+    font-size: 14px;
+    color: #8c9096;
+}
+
+/* ------------------------------
+   Inputs
+------------------------------ */
+.input-group {
+    margin-bottom: 26px;
+}
+
+label {
+    font-size: 14px;
+    color: #d1d5db;
+    opacity: 0.85;
+}
+
+input {
+    width: 90%;
+    padding: 16px 18px;
+    margin-top: 12px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    color: #e5e7eb;
+    font-size: 16px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 0 18px rgba(120,160,255,0.25);
+}
+
+/* ------------------------------
+   Primary Button
+------------------------------ */
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: rgba(120,160,255,0.9);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 0 22px rgba(120,160,255,0.25);
+}
+
+.btn-primary:hover {
+    background: rgba(120,160,255,1);
+    box-shadow: 0 0 28px rgba(120,160,255,0.35);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+.login-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.login-footer a {
+    color: #7fb3ff;
+    text-decoration: none;
+}
+
+/* ------------------------------
+   Animations
+------------------------------ */
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* Role row layout */
+.role-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+/* Dropdown styling (matches your inputs) */
+.role-select {
+    flex: 0.95;
+    margin-top: 10px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    color: #e5e7eb;
+    font-size: 16px;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-select:focus {
+    outline: none;
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 0 18px rgba(120,160,255,0.25);
+}
+
+/* Question mark icon */
+.info-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #cfd2d6;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.info-icon:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 260px;
+    background: rgba(0,0,0,1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #d1d5db;
+    line-height: 1.4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    box-shadow: 0 0 30px rgba(120,160,255,0.15);
+}
+
+/* Show tooltip on hover */
+.info-icon:hover + .tooltip {
+    opacity: 1;
+}
