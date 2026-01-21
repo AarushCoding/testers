@@ -1,0 +1,180 @@
+/* 1. Base Styles & Theme Variables */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+
+    /* Signature Shadows from your Dashboard */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-lift: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.dashboard-shell {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 2. Floating Action Banner (The "Approve All" thing) */
+.approval-banner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1120px;
+    background: #1a1a1a; /* Dark contrast like your sidebar would be */
+    color: white;
+    padding: 16px 32px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    box-shadow: var(--shadow-lift);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.approval-banner.hidden { display: none; }
+
+.banner-info { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.banner-info i { color: #ff8080; } /* Using your CTA red for alerts */
+
+.approve-all-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.approve-all-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+/* 3. Glass Header */
+.top-bar {
+    margin-top: 100px; /* Space for banner */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1200px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 30px 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.header-content h1 { font-size: 2rem; font-weight: 750; letter-spacing: -0.5px; }
+
+.glass-btn {
+    background: white;
+    border: 1px solid #e0e0e0;
+    color: var(--text-main);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
+.glass-btn:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1); }
+
+/* 4. Split Grid Layout */
+.glass-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    height: calc(100vh - 300px);
+}
+
+.glass-column {
+    background: white; /* Solid white like your dashboard table */
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-column:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+}
+
+.column-header {
+    background-color: #f8f9fa; /* Matches your table th */
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.column-header h2 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.scroll-box {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* 5. Row Item Styling (The "Cards") */
+.item-card {
+    padding: 18px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.item-card:last-child { border-bottom: none; }
+
+.item-card:hover { background-color: #fcfcfc; }
+
+.item-card strong { display: block; font-size: 1rem; color: var(--text-main); }
+.item-card small { color: var(--text-muted); font-size: 0.85rem; }
+
+/* 6. Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 992px) {
+    .glass-grid { grid-template-columns: 1fr; height: auto; }
+    .top-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .scroll-box { max-height: 400px; }
+}

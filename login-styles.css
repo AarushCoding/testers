@@ -10,7 +10,7 @@ body.auth-page {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 60px 0;
+    padding: 0px 0;
 }
 
 /* ------------------------------
@@ -28,7 +28,7 @@ body.auth-page {
     -webkit-backdrop-filter: blur(34px) saturate(220%);
     border-radius: 26px;
     padding: 58px;
-    box-shadow: 0 0 120px rgba(120,160,255,0.12);
+    box-shadow: 0 0 30px #ffff80;
     animation: floatIn 0.7s ease;
 }
 
@@ -43,7 +43,7 @@ body.auth-page {
 }
 
 .logo span {
-    color: #7fb3ff;
+    color: #ffffff;
 }
 
 .login-header h2 {
@@ -69,7 +69,7 @@ body.auth-page {
 }
 
 .back-link:hover {
-    opacity: 1;
+    color: #ffff80;
 }
 
 /* ------------------------------
@@ -80,7 +80,7 @@ body.auth-page {
     gap: 14px;
     margin-bottom: 0px;
 
-    
+
 }
 
 .oauth-btn {
@@ -92,6 +92,7 @@ body.auth-page {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    border: solid 1px rgba(255,255,255,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +106,8 @@ body.auth-page {
 }
 
 .oauth-btn:hover {
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 5px #ffff80;
 }
 
 .github-btn img {
@@ -136,12 +138,15 @@ body.auth-page {
 label {
     font-size: 14px;
     color: #d1d5db;
-    opacity: 0.85;
+    opacity: 1;
 }
 
 input {
     width: 100%;
-    padding: 16px 18px;
+    padding: 16px 0px;
+    padding-left: 16px;
+    padding-right: 0px;
+    border: solid 1px rgba(255,255,255,0.5);
     margin-top: 12px;
     border-radius: 14px;
     background: rgba(255,255,255,0.04);
@@ -153,7 +158,7 @@ input {
 input:focus {
     outline: none;
     background: rgba(255,255,255,0.07);
-    box-shadow: 0 0 18px rgba(120,160,255,0.25);
+    box-shadow: 0 0 10px #ffff80;
 }
 
 /* ------------------------------
@@ -162,20 +167,21 @@ input:focus {
 .btn-primary {
     width: 100%;
     padding: 16px;
-    background: rgba(120,160,255,0.9);
+    border: solid 2px #ffff80;
+    background-color: #000;
+    color: #ffff80;
     border-radius: 14px;
-    color: #fff;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     margin-top: 10px;
-    box-shadow: 0 0 22px rgba(120,160,255,0.25);
+
 }
 
 .btn-primary:hover {
-    background: rgba(120,160,255,1);
-    box-shadow: 0 0 28px rgba(120,160,255,0.35);
+    background: #333;
+    box-shadow: 0 0 10px #ffff80;
 }
 
 .btn-primary:active {
@@ -190,12 +196,18 @@ input:focus {
     text-align: center;
     color: #9ca3af;
     font-size: 15px;
-    opacity: 0.8;
+    
 }
 
 .login-footer a {
-    color: #7fb3ff;
+    color: #ffff80;
     text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.login-footer a:hover {
+    opacity: 1;
 }
 
 /* ------------------------------
@@ -212,7 +224,7 @@ input:focus {
     margin-top: 18px;
     text-align: center;
     font-size: 14px;
-    color: #7fb3ff;
+    color: #ffff80;
     text-decoration: none;
     opacity: 0.75;
     transition: opacity 0.2s ease;

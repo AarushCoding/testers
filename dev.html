@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testers</title>
+    <link rel="stylesheet" href="dev-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">testing.com</a>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#how-it-works" class="nav-link">How it Works</a></li>
+                <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-cta" id="logoutBtn">Logout</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-header">
+        <h1 id="title" class="title">Dashboard</h1>
+        <!-- Add App Button -->
+        <button id="addAppBtn" class="add-app-btn">+ Add New App</button>
+
+        <!-- Modal -->
+
+
+        
+    </div>
+
+        <div id="addAppModal" class="modal hidden">
+
+            <div class="modal-overlay hidden">
+                <div class="modal-content">
+                    <h2>Add New App</h2>
+
+                    <form id="addAppForm">
+                        <label>
+                            App Name
+                            <input type="text" id="appName" required />
+                        </label>
+
+                        <label>
+                            Description
+                            <textarea id="appDescription"></textarea>
+                        </label>
+
+                        <div class="modal-actions">
+                            <button type="button" id="cancelBtn">Cancel</button>
+                            <button type="submit">Create App</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    <div class="content-container">
+        <table class="dashboard-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%">Name</th>
+                    <th style="width: 50%">Description</th>
+                    <th style="width: 15%">Date</th>
+                    <th style="width: 10%">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="4" style="text-align:center;">Loading data...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="dev.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

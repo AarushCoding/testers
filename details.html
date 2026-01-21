@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard</title>
+    <link rel="stylesheet" href="details-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="dashboard-shell">
+
+    <main class="main-content">
+        <div id="approvalBanner" class="approval-banner hidden"></div>
+
+        <header class="top-bar">
+            <div class="header-content">
+                <h1 id="appTitle">Loading...</h1>
+                <div class="button-row">
+                    <button class="glass-btn" id="copyJoin"><i class="fa-solid fa-user-plus"></i> Join Link</button>
+                    <button class="glass-btn" id="copyFeedback"><i class="fa-solid fa-comment-dots"></i> Feedback Link</button>
+                </div>
+            </div>
+            <a href="dev.html" class="exit-link"><i class="fa-solid fa-xmark"></i></a>
+        </header>
+
+        <div class="glass-grid">
+            <section class="glass-column">
+                <div class="column-header">
+                    <i class="fa-solid fa-user-check"></i>
+                    <h2>Verified Testers</h2>
+                </div>
+                <div id="approvedList" class="scroll-box"></div>
+            </section>
+
+            <section class="glass-column">
+                <div class="column-header">
+                    <i class="fa-solid fa-message"></i>
+                    <h2>User Feedback</h2>
+                </div>
+                <div id="feedbackList" class="scroll-box"></div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="details.js"></script>
+</body>
+</html>

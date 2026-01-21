@@ -12,6 +12,7 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
+    background-color: #111
 }
 
 /* 2. Navbar Container */
@@ -67,26 +68,26 @@ body {
 }
 
 .nav-link:hover {
-    color: #007bff;
+    color: #000;
 }
 
 /* 5. Call to Action Button */
 .nav-cta {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #000;
+    color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(68, 68, 68, 0.2);
 }
 
 .nav-cta:hover {
-    background-color: #0056b3;
+    background-color: #555;
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(68, 68, 68, 0.3);
 }
 
 /* 6. Mobile Hamburger Icon */
@@ -160,15 +161,15 @@ body {
     text-align: center;
     min-height: 80vh; /* Increased height for a better look with images */
     padding: 20px;
-    
+
     /* The Magic Part: Overlay + Image */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                 url('assets/background.jpeg');
-    
+
     background-size: cover;       /* Ensures the image fills the area */
     background-position: center;  /* Keeps the image centered */
     background-attachment: fixed; /* Optional: adds a cool parallax effect */
-    
+
     color: white; /* Ensures text is readable against the dark overlay */
 }
 
@@ -177,15 +178,16 @@ body {
     font-weight: 900;
     line-height: 1.1;
     margin: 0;
-    color: #ffffff; /* Make sure title is white */
+    color: #fff; /* Make sure title is white */
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Optional: extra pop */
 }
 
 .hero-cta {
     display: inline-block;
     margin-top: 25px;
-    background-color: #007bff;
-    color: #ffffff;
+    border: solid 2px #ffff80;
+    background-color: #000;
+    color: #ffff80;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
@@ -196,7 +198,7 @@ body {
 }
 
 .hero-cta:hover {
-    background-color: #0056b3;
+    background-color: #444;
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
 }
@@ -225,12 +227,12 @@ h1 {
     font-weight: 800;
     margin-bottom: 0;
     letter-spacing: -1px;
-    color: #1a1a1a;
+    color: #fff;
 }
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: #1a1a1a;
+    color: #fff;
 }
 
 
@@ -264,30 +266,30 @@ h1 {
 .feature-card {
     width: 100%;
     max-width: 350px;
-    background: #ffffff;
+    background: #1A1A1A;
     padding: 40px 30px;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px #ffff80;
 }
 
 .icon {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .feature-card p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #666;
+    color: #B3B3B3;
 }
 
 /* ================================
@@ -318,7 +320,7 @@ h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 30px;
-    color: #1a1a1a;
+    color: #fff;
 }
 
 
@@ -335,7 +337,7 @@ h1 {
 
 .toggle-label {
     font-weight: 600;
-    color: #333;
+    color: #ccc;
 }
 
 /* Switch styling */
@@ -375,7 +377,7 @@ h1 {
 }
 
 input:checked + .slider {
-    background: #007bff;
+    background: #b3b300;
 }
 
 input:checked + .slider:before {
@@ -399,7 +401,7 @@ input:checked + .slider:before {
     max-width: 1000px;
     margin: 0 auto;
     border-collapse: collapse;
-    background: #fff;
+    background: #1A1A1A;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -411,14 +413,14 @@ input:checked + .slider:before {
     padding: 18px 20px;
     border-bottom: 1px solid #eee;
     text-align: center;
-    color: #444;
+    color: #fff;
     font-size: 1rem;
 }
 
 .feature-col {
     text-align: left;
     font-weight: 700;
-    background: #fafafa;
+    background: #444;
 }
 
 
@@ -427,7 +429,7 @@ input:checked + .slider:before {
 ================================ */
 .price-row td {
     font-weight: 700;
-    background: #fdfdfd;
+    background: #333;
 }
 
 .discount-label {
@@ -435,7 +437,7 @@ input:checked + .slider:before {
     margin-top: 6px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #28a745;
+    color: #ffff80;
 }
 
 
@@ -445,8 +447,9 @@ input:checked + .slider:before {
 .plan-btn {
     display: inline-block;
     padding: 10px 20px;
-    background: #007bff;
-    color: #fff;
+    border: solid 2px #ffff80;
+    background-color: #000;
+    color: #ffff80;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
@@ -454,7 +457,7 @@ input:checked + .slider:before {
 }
 
 .plan-btn:hover {
-    background: #005fcc;
+    background: #555;
 }
 
 .highlight-btn {
