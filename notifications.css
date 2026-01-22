@@ -1,0 +1,118 @@
+/* 1. Notification Container */
+#toast-container {
+    position: fixed;
+    top: 100px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+    pointer-events: none; /* Allows clicks to pass through gaps */
+}
+
+/* 2. The Individual Toast Card */
+.toast {
+    pointer-events: auto; /* Re-enable clicks for the toast itself */
+    width: 350px;
+    background: rgba(40, 40, 40, 0.8); /* Dark glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+
+    /* Animation entry */
+    animation: toastSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 3. Content Layout */
+.toast-content {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.toast-content i {
+    font-size: 1.4rem;
+    margin-top: 2px;
+}
+
+.toast-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toast-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.toast-message {
+    font-size: 0.85rem;
+    color: #bbb;
+    line-height: 1.4;
+}
+
+/* 4. Close Button */
+.toast-close {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 10px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.toast-close:hover {
+    color: #ff8080;
+    transform: scale(1.1);
+}
+
+/* 5. Progress Timer Line */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 0 0 0 12px;
+    opacity: 0.8;
+}
+
+/* 6. Animations */
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast.closing {
+    animation: toastSlideOut 0.4s ease forwards;
+}
+
+@keyframes toastSlideOut {
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+/* 7. Type-Specific Borders (Subtle left glow) */
+.toast.success { border-left: 5px solid #4ade80; }
+.toast.error   { border-left: 5px solid #ff8080; }
+.toast.info    { border-left: 5px solid #ffff80; }

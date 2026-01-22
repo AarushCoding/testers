@@ -1,4 +1,5 @@
 import { supabase } from './supabase.js';
+import { toast } from './notifications.js'
 
 const appId = new URLSearchParams(window.location.search).get('id');
 
@@ -31,8 +32,8 @@ async function refreshUI() {
     }
 
     // Render Lists
-    renderList('approvedList', testers.filter(t => t.status === 'approved'), t => `<strong>${t.name}</strong><br><small>${t.email}</small>`);
-    renderList('feedbackList', feedback, f => `<strong>${f.user_name}</strong><p style="margin-top:5px; opacity:0.8;">${f.content}</p>`);
+    renderList('approvedList', testers.filter(t => t.status === 'approved'), t => `<strong>${t.name}</strong><small>${t.email}</small>`);
+    renderList('feedbackList', feedback, f => `<strong>${f.title} - ${f.name}</strong><p style="margin-top:5px; opacity:0.8; color: #e6e6e6">${f.message}</p>`);
 }
 
 function renderList(id, data, template) {
@@ -54,7 +55,12 @@ async function approveAll() {
 // Links
 document.getElementById('copyJoin').onclick = () => {
     navigator.clipboard.writeText(`${window.location.origin}/join.html?appId=${appId}`);
-    alert("Copied!");
+    toast.show("Link Copied!", "The join link has been copied to your clipboard", "info", 3000);
+};
+
+document.getElementById('copyFeedback').onclick = () => {
+    navigator.clipboard.writeText(`${window.location.origin}/feedback.html?appId=${appId}`);
+    toast.show("Link Copied!", "The feedback link has been copied to your clipboard", "info", 3000);
 };
 
 refreshUI();

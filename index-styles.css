@@ -15,10 +15,34 @@ body {
     background-color: #111
 }
 
+.top-header {
+    position: fixed;
+}
+
+.banner {
+    position: fixed;
+    width: 100%;
+    background: #ffffcc;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    z-index: 1000;
+
+}
+
+.banner-text {
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+}
+
+
+
 /* 2. Navbar Container */
 .navbar {
     position: fixed; /* Stays at top while scrolling */
-    top: 0;
+    top: 40px;
     width: 100%;
     height: 80px;
     background: rgba(255, 255, 255, 0.8); /* Slight transparency */

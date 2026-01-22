@@ -19,7 +19,20 @@
         <h1 id="appName">Feedback</h1>
         <p class="subtitle">Share your thoughts on the experience.</p>
         <form id="feedbackForm">
-            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="title" placeholder="Title" required>
+
+            <div class="rating-box">
+                <span>Rating</span>
+                <div class="star-rating">
+                    <input type="radio" name="rating" value="5" id="s5"><label for="s5">★</label>
+                    <input type="radio" name="rating" value="4" id="s4"><label for="s4">★</label>
+                    <input type="radio" name="rating" value="3" id="s3"><label for="s3">★</label>
+                    <input type="radio" name="rating" value="2" id="s2"><label for="s2">★</label>
+                    <input type="radio" name="rating" value="1" id="s1" required><label for="s1">★</label>
+                </div>
+            </div>
+
             <textarea id="content" placeholder="How can we make this better?" rows="4" required></textarea>
             <button type="submit" class="submit-btn">Send Feedback</button>
         </form>
@@ -36,15 +49,59 @@
             if (data) document.getElementById('appName').innerText = `${data.name} Feedback`;
         }
 
+        const selectedRating = document.querySelector('input[name="rating"]:checked');
+        const ratingValue = selectedRating ? selectedRating.value : 0;
+
+        if (!appId || appId.length < 36) {
+            alert("Invalid App ID. Cannot submit feedback.");
+
+        }
+
+        // 3. Prepare the data
+        // IMPORTANT: Only include keys that exist as COLUMNS in your Supabase table
+        const feedbackEntry = {
+            app_id: appId,                                     // The UUID string
+            title: document.getElementById('title').value,     // Matches 'title' column
+            name: document.getElementById('name').value,       // Matches 'name' column (if you added it)
+            message: document.getElementById('content').value, // Matches 'message' column
+            rating: parseInt(ratingValue)                      // Matches 'rating' column (as integer)
+        };
+
         document.getElementById('feedbackForm').onsubmit = async (e) => {
             e.preventDefault();
+
+            // 1. Get appId from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const appId = urlParams.get('appId');
+
+            // 2. Get the rating safely
+            const selectedRadio = document.querySelector('input[name="rating"]:checked');
+
+            // We use Number() and a fallback of 5 to ensure it's NEVER 0 or null
+            const ratingValue = selectedRadio ? Number(selectedRadio.value) : 5;
+
+            // 3. Get text values safely
+            const nameVal = document.getElementById('name')?.value || "Anonymous";
+            const titleVal = document.getElementById('title')?.value || "No Title";
+            const messageVal = document.getElementById('content')?.value || "";
+
+            // DEBUG: Look at your browser console to see if these look right
+            console.log("Submitting:", { appId, nameVal, titleVal, messageVal, ratingValue });
+
+            // 4. Send to Supabase
             const { error } = await supabase.from('feedback').insert([{
                 app_id: appId,
-                user_name: document.getElementById('name').value,
-                content: document.getElementById('content').value
+                name: nameVal,
+                title: titleVal,
+                message: messageVal,
+                rating: ratingValue
             }]);
-            if (!error) {
-                document.getElementById('formContainer').innerHTML = `<h1>Thank you.</h1><p class="subtitle">Feedback sent successfully.</p>`;
+
+            if (error) {
+                console.error("Database Error:", error);
+                alert("Database rejected submission: " + error.message);
+            } else {
+                document.getElementById('formContainer').innerHTML = `<h1 style="color:#fff;">Success!</h1><p>Thank you for recording feedback.</p>`;
             }
         };
         init();

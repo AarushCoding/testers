@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management Dashboard</title>
     <link rel="stylesheet" href="details-styles.css">
+    <link rel="stylesheet" href="notifications.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body class="dashboard-shell">
@@ -15,10 +16,10 @@
         <header class="top-bar">
             <div class="header-content">
                 <h1 id="appTitle">Loading...</h1>
-                <div class="button-row">
-                    <button class="glass-btn" id="copyJoin"><i class="fa-solid fa-user-plus"></i> Join Link</button>
-                    <button class="glass-btn" id="copyFeedback"><i class="fa-solid fa-comment-dots"></i> Feedback Link</button>
-                </div>
+
+                <button class="glass-btn" id="copyJoin"><i class="fa-solid fa-user-plus"></i> Join Link</button>
+                <button class="glass-btn" id="copyFeedback"><i class="fa-solid fa-comment-dots"></i> Feedback Link</button>
+
             </div>
             <a href="dev.html" class="exit-link"><i class="fa-solid fa-xmark"></i></a>
         </header>
@@ -40,7 +41,10 @@
                 <div id="feedbackList" class="scroll-box"></div>
             </section>
         </div>
+        <div class="notification-container"></div>
     </main>
+
+
 
     <script type="module" src="details.js"></script>
 </body>

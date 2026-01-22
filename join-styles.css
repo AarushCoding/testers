@@ -100,3 +100,47 @@ input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.4); }
     transform: translateY(-2px);
     background: #f8fafc;
 }
+
+.rating-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.rating-container p {
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Allows us to highlight previous stars */
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.star-rating input {
+    display: none; /* Hide the actual radio circle */
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Change star to solid/gold when checked or hovered */
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #ffff80; /* Matches your dashboard accent */
+    content: "★";
+}
+
+/* Optional: change the outline star to solid when selected */
+.star-rating input:checked ~ label:before,
+.star-rating label:hover:before {
+    content: "★";
+    position: absolute;
+}

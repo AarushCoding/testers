@@ -21,7 +21,7 @@
 
 body.dashboard-shell {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg-gradient);
+    background: #1a1a1a;
     background-attachment: fixed;
     color: var(--text-main);
     line-height: 1.6;
@@ -74,9 +74,9 @@ body.dashboard-shell {
     margin-right: auto;
     width: 90%;
     max-width: 1200px;
-    background: var(--glass-bg);
+    background: #1a1a1a;
     backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+
     padding: 30px 40px;
     border-radius: 20px;
     display: flex;
@@ -86,7 +86,39 @@ body.dashboard-shell {
     animation: fadeInUp 0.8s ease-out;
 }
 
-.header-content h1 { font-size: 2rem; font-weight: 750; letter-spacing: -0.5px; }
+.header-content {
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: space-between; /* Title left, buttons right */
+    width: 100%;
+    gap: 20px; /* Space between title and first button */
+}
+
+#appTitle {
+    margin: 0;
+    white-space: nowrap;
+    margin-right: auto; /* Prevents title from wrapping */
+}
+
+.exit-link {
+    color: #ff4d4d;          /* Solid vibrant red */
+    font-size: 2rem;         /* Made it significantly bigger */
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    /* 2. Positioning */
+    margin-left: 40px;       /* Adds a large gap between buttons and the cross */
+    display: flex;
+    align-items: center;
+}
+
+/* 3. Hover Effect */
+.exit-link:hover {
+    color: #ff0000;          /* Darker red on hover */
+    transform: scale(1.2) rotate(90deg); /* Grows and rotates for a cool effect */
+}
+
+.header-content h1 { font-size: 2rem; font-weight: 750; letter-spacing: -0.5px; color: #fff; }
 
 .glass-btn {
     background: white;
@@ -115,9 +147,9 @@ body.dashboard-shell {
 }
 
 .glass-column {
-    background: white; /* Solid white like your dashboard table */
+    background: #333; /* Solid white like your dashboard table */
     border-radius: 20px;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -130,7 +162,7 @@ body.dashboard-shell {
 }
 
 .column-header {
-    background-color: #f8f9fa; /* Matches your table th */
+    background-color: #666; /* Matches your table th */
     padding: 20px 30px;
     border-bottom: 1px solid #eee;
     display: flex;
@@ -142,7 +174,7 @@ body.dashboard-shell {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--text-muted);
+    color: #fff;
     font-weight: 600;
 }
 
@@ -157,14 +189,15 @@ body.dashboard-shell {
     padding: 18px;
     border-bottom: 1px solid #eee;
     transition: background 0.2s;
+
 }
 
 .item-card:last-child { border-bottom: none; }
 
-.item-card:hover { background-color: #fcfcfc; }
+.item-card:hover { background-color: #555; }
 
-.item-card strong { display: block; font-size: 1rem; color: var(--text-main); }
-.item-card small { color: var(--text-muted); font-size: 0.85rem; }
+.item-card strong { display: block; font-size: 1rem; color: #e6e6e6; }
+.item-card small { color: #ccc; font-size: 0.85rem; }
 
 /* 6. Animations */
 @keyframes fadeInUp {
@@ -177,4 +210,14 @@ body.dashboard-shell {
     .glass-grid { grid-template-columns: 1fr; height: auto; }
     .top-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
     .scroll-box { max-height: 400px; }
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .glass-btn {
+        margin-left: 0;
+        width: 100%; /* Full width buttons on mobile look better */
+    }
 }
