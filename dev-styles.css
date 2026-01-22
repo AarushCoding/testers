@@ -73,8 +73,9 @@ body {
 
 /* 5. Call to Action Button */
 .nav-cta {
-    background-color: #ff8080;
-    color: #ffffff;
+    border: solid 2px #ffff80;
+    background-color: #000;
+    color: #ffff80;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
@@ -85,7 +86,7 @@ body {
 }
 
 .nav-cta:hover {
-    background-color: #ff1a1a;
+    background-color: #444;
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
 }

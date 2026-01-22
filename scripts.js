@@ -27,13 +27,13 @@ billingToggle.addEventListener("change", function() {
     const proDiscount = document.querySelector(".pro-discount");
 
     if (yearly) {
-        plusPrice.textContent = "£54.99/yr";
-        proPrice.textContent = "£229.99/yr";
+        plusPrice.textContent = "£114.99/yr";
+        proPrice.textContent = "£224.99/yr";
 
-        plusDiscount.textContent = "Save 8%";
-        proDiscount.textContent = "Save 4%";
+        plusDiscount.textContent = "Save 4%";
+        proDiscount.textContent = "Save 6%";
     } else {
-        plusPrice.textContent = "£4.99/mo";
+        plusPrice.textContent = "£9.99/mo";
         proPrice.textContent = "£19.99/mo";
 
         plusDiscount.textContent = "";

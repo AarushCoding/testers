@@ -165,6 +165,7 @@ body {
     /* The Magic Part: Overlay + Image */
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                 url('assets/background.jpeg');
+    min-height: 100vh;
 
     background-size: cover;       /* Ensures the image fills the area */
     background-position: center;  /* Keeps the image centered */
@@ -220,13 +221,14 @@ h1 {
 .section-header {
     text-align: center;
     padding: 80px 20px 20px;
+    margin: 20px;
 }
 
 .section-title {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 0;
     letter-spacing: -1px;
+    margin: 0;
     color: #fff;
 }
 
@@ -239,6 +241,16 @@ h1 {
 /* ================================
    TOP ROW (3 CARDS)
 ================================ */
+.features {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+
 .features-container-top {
     display: flex;
     justify-content: center;   /* centers the 3 cards */
