@@ -33,7 +33,7 @@ async function refreshUI() {
 
     // Render Lists
     renderList('approvedList', testers.filter(t => t.status === 'approved'), t => `<strong>${t.name}</strong><small>${t.email}</small>`);
-    renderList('feedbackList', feedback, f => `<strong>${f.title} - ${f.name}</strong><p style="margin-top:5px; opacity:0.8; color: #e6e6e6">${f.message}</p>`);
+    renderList('feedbackList', feedback, f => `<strong>${f.title} - ${f.name} - ${f.rating} stars</strong><p style="margin-top:5px; opacity:0.8; color: #e6e6e6">${f.message}</p>`);
 }
 
 function renderList(id, data, template) {
