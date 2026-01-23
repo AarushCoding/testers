@@ -8,7 +8,7 @@ signupForm.addEventListener("submit", async (event) => {
     const fullName = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const role = document.getElementById("role").value;
+    
 
     const { error } = await supabase.auth.signUp({
         email: email,
@@ -16,7 +16,7 @@ signupForm.addEventListener("submit", async (event) => {
         options: {
             data: {
                 full_name: fullName,
-                role: role
+                
             }
         }
     });

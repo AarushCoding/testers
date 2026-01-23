@@ -5,7 +5,7 @@ const billingToggle = document.getElementById("billingToggle");
 hamburger.addEventListener("click", () => {
     // Toggle the "active" class to open/close the menu
     hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+    navMenu.classList.togg.le("active");
 });
 
 // Close the menu when a link is clicked (useful for one-page sites)
